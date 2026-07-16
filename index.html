@@ -1,0 +1,1115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PIXANTRA — Creative Studio</title>
+  <meta name="description" content="Pick a plan, submit a job request, and your image will kickoff within 24 hours." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Barlow+Condensed:wght@200;300;400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader" data-preloader>
+    <div class="preloader__panels" data-pre-panels aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <span class="preloader__corner preloader__corner--tl"></span>
+    <span class="preloader__corner preloader__corner--tr"></span>
+    <span class="preloader__corner preloader__corner--bl"></span>
+    <span class="preloader__corner preloader__corner--br"></span>
+    <span class="preloader__plus preloader__plus--1"></span>
+    <span class="preloader__plus preloader__plus--2"></span>
+
+    <div class="preloader__top">
+      <span class="preloader__tag">Pixantra Studio</span>
+      <span class="preloader__tag preloader__tag--r">&reg; 2026</span>
+    </div>
+
+    <div class="preloader__center">
+      <div class="preloader__word" data-pre-word aria-hidden="true"></div>
+    </div>
+
+    <div class="preloader__bottom">
+      <div class="preloader__count">
+        <span class="preloader__count-num" data-pre-count>000</span><span class="preloader__count-pct">%</span>
+      </div>
+      <div class="preloader__bar">
+        <span class="preloader__bar-fill" data-pre-fill></span>
+      </div>
+    </div>
+
+    <div class="preloader__status" data-pre-status>Initializing</div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div class="cursor" data-cursor>
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+  </div>
+
+  <!-- WebGL liquid gradient background -->
+  <canvas id="liquid-canvas" aria-hidden="true"></canvas>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- Decorative plus markers -->
+  <div class="markers" aria-hidden="true">
+    <span class="plus" data-parallax="0.05" style="top:28%; left:47%;"></span>
+    <span class="plus" data-parallax="0.08" style="top:49%; left:28%;"></span>
+    <span class="plus" data-parallax="0.06" style="top:49%; left:67%;"></span>
+    <span class="plus" data-parallax="0.09" style="top:29%; left:86%;"></span>
+  </div>
+
+  <!-- Persistent header — lives outside the route stack so it stays put -->
+  <header class="header" data-header>
+    <a href="#home" class="logo" data-route="home" data-magnetic data-cursor-hover>
+      <span class="logo__mark"></span>
+      <span class="logo__text">PIXANTRA</span>
+      <span class="logo__dot"></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="#home" class="nav__link is-active" data-route="home" data-cursor-hover><span class="nav__label">Home</span><span class="nav__num">01</span></a>
+      <a href="#portfolio" class="nav__link" data-route="portfolio" data-cursor-hover><span class="nav__label">Portfolio</span><span class="nav__num">02</span></a>
+      <a href="#about" class="nav__link" data-route="about" data-cursor-hover><span class="nav__label">About</span><span class="nav__num">03</span></a>
+      <a href="#contact" class="nav__link" data-route="contact" data-cursor-hover><span class="nav__label">Contact</span><span class="nav__num">04</span></a>
+    </nav>
+
+    <a href="#about" class="ceo-card" data-route="about" data-magnetic data-cursor-hover>
+      <span class="ceo-card__avatar"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&h=120&fit=crop&crop=faces" alt="Sena Marlow, CEO" loading="lazy" /></span>
+      <span class="ceo-card__body">
+        <span class="ceo-card__row">
+          <span class="ceo-card__title">Meet the CEO</span>
+          <span class="ceo-card__icon">→</span>
+        </span>
+        <span class="ceo-card__name">Sena Marlow</span>
+        <span class="ceo-card__role">CEO</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" data-nav-toggle aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Mobile fullscreen navigation -->
+  <div class="mobile-nav" data-mobile-nav aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#home" class="mobile-nav__link" data-route="home"><span class="mobile-nav__num">01</span> Home</a>
+      <a href="#portfolio" class="mobile-nav__link" data-route="portfolio"><span class="mobile-nav__num">02</span> Portfolio</a>
+      <a href="#about" class="mobile-nav__link" data-route="about"><span class="mobile-nav__num">03</span> About</a>
+      <a href="#contact" class="mobile-nav__link" data-route="contact"><span class="mobile-nav__num">04</span> Contact</a>
+    </nav>
+    <div class="mobile-nav__foot">
+      <a href="mailto:hello@pixantra.studio">hello@pixantra.studio</a>
+      <span>© 2026 Pixantra</span>
+    </div>
+  </div>
+
+  <!-- ===================== ROUTE STACK ===================== -->
+  <div class="routes" data-routes>
+
+  <!-- ============ HOME ROUTE ============ -->
+  <div class="route is-active" data-route-page="home">
+  <div class="page">
+
+    <!-- Hero -->
+    <main class="hero">
+      <div class="views" data-views>
+
+        <!-- HOME -->
+        <section class="view is-active" data-view="home">
+          <div class="hero__lead">
+            <p class="hero__copy" data-split>
+              Pick a plan, submit a job request, and your <em>image</em> will kickoff within 24 hours.
+            </p>
+
+            <a href="#portfolio" class="explore" data-route="portfolio" data-magnetic data-cursor-hover>
+              <span class="explore__bracket"></span>
+              <span class="explore__text">Explore Now</span>
+              <span class="explore__line"></span>
+            </a>
+
+            <ul class="services">
+              <li class="services__item is-active"><span class="services__idx">01/</span> Strategy</li>
+              <li class="services__item">Videography</li>
+              <li class="services__item">Branding</li>
+            </ul>
+          </div>
+
+          <div class="wordmark" aria-hidden="true">
+            <span class="wordmark__text" data-wordmark>PI<span class="wordmark__x">X</span>ANTRA</span>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer__left">
+        <span class="footer__copy">© 2026</span>
+        <span class="footer__ruler"></span>
+        <span class="footer__val">26'</span>
+      </div>
+      <a href="#" class="reel" data-magnetic data-cursor-hover>
+        <span class="reel__pulse"></span>
+        <span>Studio Reel</span>
+      </a>
+    </footer>
+  </div>
+
+  <!-- Scroll-driven marquee band -->
+  <section class="marquee-band" data-marquee-band aria-hidden="true">
+    <div class="marquee">
+      <div class="marquee__track" data-marquee data-dir="ltr">
+        <span class="marquee__group">
+          <span>Design</span><em>•</em><span>Branding</span><em>•</em><span>Social Media</span><em>•</em><span>Strategy</span><em>•</em><span>Videography</span><em>•</em>
+        </span>
+        <span class="marquee__group">
+          <span>Design</span><em>•</em><span>Branding</span><em>•</em><span>Social Media</span><em>•</em><span>Strategy</span><em>•</em><span>Videography</span><em>•</em>
+        </span>
+      </div>
+    </div>
+
+    <div class="marquee marquee--alt">
+      <div class="marquee__track" data-marquee data-dir="rtl">
+        <span class="marquee__group">
+          <span>Motion</span><em>•</em><span>Social Media</span><em>•</em><span>Branding</span><em>•</em><span>Creative</span><em>•</em><span>Direction</span><em>•</em>
+        </span>
+        <span class="marquee__group">
+          <span>Motion</span><em>•</em><span>Social Media</span><em>•</em><span>Branding</span><em>•</em><span>Creative</span><em>•</em><span>Direction</span><em>•</em>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scroll-reveal statement section -->
+  <section class="statement" data-statement>
+    <div class="ambient" aria-hidden="true">
+      <span class="ambient__orb ambient__orb--a"></span>
+      <span class="ambient__orb ambient__orb--b"></span>
+      <span class="ambient__grid"></span>
+      <span class="ambient__dot" style="top:18%; left:12%; --d:14s;"></span>
+      <span class="ambient__dot" style="top:64%; left:22%; --d:19s;"></span>
+      <span class="ambient__dot" style="top:32%; left:82%; --d:16s;"></span>
+      <span class="ambient__dot" style="top:78%; left:68%; --d:22s;"></span>
+      <span class="ambient__dot" style="top:44%; left:50%; --d:17s;"></span>
+    </div>
+    <div class="statement__meta">
+      <span class="statement__meta-idx">&#10022; (03)</span>
+      <span class="statement__meta-mid">(Premium Services)</span>
+      <span class="statement__meta-year">&copy; 2025</span>
+    </div>
+
+    <div class="statement__body">
+      <div class="statement__media">
+        <video
+          class="statement__video"
+          src="assets/statement.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+        ></video>
+      </div>
+
+      <h2 class="statement__text" data-statement-text>Design-driven studio delivering the structured visuals, refined digital system, and high-impact brand experiences shaped by aesthetics &amp; Fuel&reg;.</h2>
+    </div>
+
+    <div class="statement__foot">
+      <a href="#" class="statement__explore" data-cursor-hover>
+        <span class="statement__explore-text">Explore More</span>
+        <span class="statement__explore-line"></span>
+        <span class="statement__explore-corner"></span>
+      </a>
+      <span class="statement__plus statement__plus--1"></span>
+      <span class="statement__plus statement__plus--2"></span>
+      <span class="statement__plus statement__plus--3"></span>
+    </div>
+  </section>
+
+  <!-- Stacked service cards (pinned scroll) -->
+  <section class="svc-stack" data-svc-stack>
+    <div class="ambient ambient--stack" aria-hidden="true">
+      <span class="ambient__orb ambient__orb--c"></span>
+     
+      
+      
+      <span class="ambient__orb ambient__orb--e"></span>
+      <span class="ambient__orb ambient__orb--f"></span>
+      <span class="ambient__orb ambient__orb--g"></span>
+      <span class="ambient__grid"></span>
+    </div>
+    <div class="svc-stack__pin" data-svc-pin>
+
+      <header class="svc-stack__head">
+        <span class="svc-stack__eyebrow">✦ (04) — Services</span>
+        <h2 class="svc-stack__title">What we <em>build</em>.</h2>
+      </header>
+
+      <article class="svc-card" style="--m1:#009bff; --m2:#4dbaff; --m3:#1226b5;">
+        <div class="svc-card__inner">
+          <span class="svc-card__badge">001</span>
+          <div class="svc-card__media">
+            <img class="svc-card__img" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=640&h=440&fit=crop" alt="" loading="lazy" onerror="this.remove()" />
+            <div class="svc-mock">
+              <span class="svc-mock__txt"></span>
+              <span class="svc-mock__tile svc-mock__tile--1"></span>
+              <span class="svc-mock__tile svc-mock__tile--2"></span>
+              <span class="svc-mock__tile svc-mock__tile--3"></span>
+            </div>
+          </div>
+          <div class="svc-card__text">
+            <h3 class="svc-card__title">Web Design</h3>
+            <p class="svc-card__desc">Modern, responsive, and user-friendly websites designed to engage visitors and drive conversions.</p>
+          </div>
+          <div class="svc-card__cats">
+            <span class="svc-card__cats-label">Categories</span>
+            <ul class="svc-card__pills">
+              <li>Wireframe</li><li>Website</li><li class="is-active">Web Design</li><li>Dashboard</li><li>Product</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc-card" style="--m1:#3aa0ff; --m2:#2ad0ff; --m3:#0b2a8f;">
+        <div class="svc-card__inner">
+          <span class="svc-card__badge">002</span>
+          <div class="svc-card__media">
+            <img class="svc-card__img" src="https://images.unsplash.com/photo-1600508774634-4e11d34730e2?w=640&h=440&fit=crop" alt="" loading="lazy" onerror="this.remove()" />
+            <div class="svc-mock">
+              <span class="svc-mock__txt"></span>
+              <span class="svc-mock__tile svc-mock__tile--1"></span>
+              <span class="svc-mock__tile svc-mock__tile--2"></span>
+              <span class="svc-mock__tile svc-mock__tile--3"></span>
+            </div>
+          </div>
+          <div class="svc-card__text">
+            <h3 class="svc-card__title">Brand Identity</h3>
+            <p class="svc-card__desc">Distinctive logos, systems, and visual language that make your brand instantly recognizable.</p>
+          </div>
+          <div class="svc-card__cats">
+            <span class="svc-card__cats-label">Categories</span>
+            <ul class="svc-card__pills">
+              <li>Logo</li><li>Guidelines</li><li class="is-active">Brand Identity</li><li>Color</li><li>Type</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc-card" style="--m1:#2ad0ff; --m2:#1a5eff; --m3:#009bff;">
+        <div class="svc-card__inner">
+          <span class="svc-card__badge">003</span>
+          <div class="svc-card__media">
+            <img class="svc-card__img" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=640&h=440&fit=crop" alt="Motion design placeholder" loading="lazy" onerror="this.style.display='none'" />
+            <div class="svc-mock">
+              <span class="svc-mock__txt"></span>
+              <span class="svc-mock__tile svc-mock__tile--1"></span>
+              <span class="svc-mock__tile svc-mock__tile--2"></span>
+              <span class="svc-mock__tile svc-mock__tile--3"></span>
+            </div>
+          </div>
+          <div class="svc-card__text">
+            <h3 class="svc-card__title">Motion Design</h3>
+            <p class="svc-card__desc">Fluid animations and micro-interactions that bring interfaces to life and guide attention.</p>
+          </div>
+          <div class="svc-card__cats">
+            <span class="svc-card__cats-label">Categories</span>
+            <ul class="svc-card__pills">
+              <li>Animation</li><li>Interaction</li><li class="is-active">Motion Design</li><li>3D</li><li>Reels</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc-card" style="--m1:#00b4ff; --m2:#009bff; --m3:#132a86;">
+        <div class="svc-card__inner">
+          <span class="svc-card__badge">004</span>
+          <div class="svc-card__media">
+            <img class="svc-card__img" src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=640&h=440&fit=crop" alt="UI/UX design placeholder" loading="lazy" onerror="this.style.display='none'" />
+            <div class="svc-mock">
+              <span class="svc-mock__txt"></span>
+              <span class="svc-mock__tile svc-mock__tile--1"></span>
+              <span class="svc-mock__tile svc-mock__tile--2"></span>
+              <span class="svc-mock__tile svc-mock__tile--3"></span>
+            </div>
+          </div>
+          <div class="svc-card__text">
+            <h3 class="svc-card__title">UI/UX Design</h3>
+            <p class="svc-card__desc">Intuitive interfaces and thoughtful flows crafted around real user needs and behavior.</p>
+          </div>
+          <div class="svc-card__cats">
+            <span class="svc-card__cats-label">Categories</span>
+            <ul class="svc-card__pills">
+              <li>Research</li><li>Wireframe</li><li class="is-active">UI/UX Design</li><li>Prototype</li><li>Testing</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc-card" style="--m1:#1a5eff; --m2:#2ad0ff; --m3:#0a63d6;">
+        <div class="svc-card__inner">
+          <span class="svc-card__badge">005</span>
+          <div class="svc-card__media">
+            <img class="svc-card__img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=640&h=440&fit=crop" alt="Development placeholder" loading="lazy" onerror="this.style.display='none'" />
+            <div class="svc-mock">
+              <span class="svc-mock__txt"></span>
+              <span class="svc-mock__tile svc-mock__tile--1"></span>
+              <span class="svc-mock__tile svc-mock__tile--2"></span>
+              <span class="svc-mock__tile svc-mock__tile--3"></span>
+            </div>
+          </div>
+          <div class="svc-card__text">
+            <h3 class="svc-card__title">Development</h3>
+            <p class="svc-card__desc">High-performance, accessible builds engineered for scale, speed, and maintainability.</p>
+          </div>
+          <div class="svc-card__cats">
+            <span class="svc-card__cats-label">Categories</span>
+            <ul class="svc-card__pills">
+              <li>React</li><li>Webflow</li><li class="is-active">Development</li><li>API</li><li>CMS</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc-card" style="--m1:#4dbaff; --m2:#3aa0ff; --m3:#00b4ff;">
+        <div class="svc-card__inner">
+          <span class="svc-card__badge">006</span>
+          <div class="svc-card__media">
+            <img class="svc-card__img" src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=640&h=440&fit=crop" alt="Art direction placeholder" loading="lazy" onerror="this.style.display='none'" />
+            <div class="svc-mock">
+              <span class="svc-mock__txt"></span>
+              <span class="svc-mock__tile svc-mock__tile--1"></span>
+              <span class="svc-mock__tile svc-mock__tile--2"></span>
+              <span class="svc-mock__tile svc-mock__tile--3"></span>
+            </div>
+          </div>
+          <div class="svc-card__text">
+            <h3 class="svc-card__title">Art Direction</h3>
+            <p class="svc-card__desc">Cohesive creative direction that shapes tone, mood, and aesthetic across every touchpoint.</p>
+          </div>
+          <div class="svc-card__cats">
+            <span class="svc-card__cats-label">Categories</span>
+            <ul class="svc-card__pills">
+              <li>Concept</li><li>Styling</li><li class="is-active">Art Direction</li><li>Photo</li><li>Mood</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="svc-card" style="--m1:#2ad0ff; --m2:#009bff; --m3:#1226b5;">
+        <div class="svc-card__inner">
+          <span class="svc-card__badge">007</span>
+          <div class="svc-card__media">
+            <img class="svc-card__img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=640&h=440&fit=crop" alt="Strategy placeholder" loading="lazy" onerror="this.style.display='none'" />
+            <div class="svc-mock">
+              <span class="svc-mock__txt"></span>
+              <span class="svc-mock__tile svc-mock__tile--1"></span>
+              <span class="svc-mock__tile svc-mock__tile--2"></span>
+              <span class="svc-mock__tile svc-mock__tile--3"></span>
+            </div>
+          </div>
+          <div class="svc-card__text">
+            <h3 class="svc-card__title">Strategy</h3>
+            <p class="svc-card__desc">Data-informed positioning and roadmaps that align design decisions with business goals.</p>
+          </div>
+          <div class="svc-card__cats">
+            <span class="svc-card__cats-label">Categories</span>
+            <ul class="svc-card__pills">
+              <li>Audit</li><li>Positioning</li><li class="is-active">Strategy</li><li>Naming</li><li>Growth</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Built-for-success: headline + chat mockup + parallax portrait + stats -->
+  <section class="success" data-success>
+    <div class="ambient" aria-hidden="true">
+      <span class="ambient__orb ambient__orb--a"></span>
+      <span class="ambient__grid"></span>
+      <span class="ambient__dot" style="top:24%; left:14%; --d:16s;"></span>
+      <span class="ambient__dot" style="top:60%; left:40%; --d:20s;"></span>
+      <span class="ambient__dot" style="top:38%; left:70%; --d:18s;"></span>
+    </div>
+
+    <div class="success__top">
+      <div class="success__lead">
+        <span class="success__eyebrow">✦ Why Pixantra</span>
+        <h2 class="success__title">Built for<br />your<br />success.</h2>
+        <p class="success__sub">From idea to launch, we move fast and stay personal — every detail, every step.</p>
+      </div>
+
+      <div class="success__panels">
+        <!-- Chat mockup -->
+        <div class="chat">
+          <div class="chat__day">Today 17:01</div>
+          <div class="chat__bubble chat__bubble--in">Hey hey!</div>
+          <div class="chat__bubble chat__bubble--in">Love the designs <span class="chat__heart">💚</span></div>
+          <div class="chat__bubble chat__bubble--in">Can we tweak the hero?</div>
+          <div class="chat__day">Today 17:02</div>
+          <div class="chat__bubble chat__bubble--out">Sure</div>
+          <div class="chat__bubble chat__bubble--out">We'll update it shortly</div>
+          <div class="chat__bubble chat__bubble--in">Perfect!</div>
+        </div>
+
+        <!-- Parallax portrait card -->
+        <div class="success__portrait" data-parallax-card>
+          <div class="success__portrait-inner" data-parallax-img>
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=640&h=800&fit=crop&crop=faces" alt="Pixantra studio at work" class="success__img" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="stat__num">20</span><span class="stat__label">Project completed</span></div>
+      <div class="stat"><span class="stat__num">300+</span><span class="stat__label">Client worldwide</span></div>
+      <div class="stat"><span class="stat__num">20+</span><span class="stat__label">Design awards</span></div>
+      <div class="stat"><span class="stat__num">400+</span><span class="stat__label">Happy customer</span></div>
+      <div class="stat"><span class="stat__num">300%</span><span class="stat__label">Conversion rate</span></div>
+    </div>
+  </section>
+
+  <!-- Pricing — spec-sheet ticket cards -->
+  <section class="pricing" id="pricing" data-pricing>
+    <div class="ambient ambient--stack" aria-hidden="true">
+      <span class="ambient__orb ambient__orb--a"></span>
+      <span class="ambient__orb ambient__orb--f"></span>
+      <span class="ambient__grid"></span>
+    </div>
+
+    <div class="pricing__pin" data-pricing-pin>
+      <header class="pricing__head">
+        <span class="pricing__eyebrow">✦ (05) — Spec Sheet</span>
+        <h2 class="pricing__title">Choose your<br /><em>build</em>.</h2>
+        <p class="pricing__sub">Three trims. Same craftsmanship underneath — pick the spec that matches the job.</p>
+      </header>
+
+      <div class="deck" id="deck">
+
+        <!-- LEFT -->
+        <article class="card card--left" data-card="left">
+          <div class="card__inner">
+            <div class="card__paper">
+              <span class="card__code">Spec / 01</span>
+              <h3 class="card__name">Base</h3>
+              <p class="card__note">For a single page done right. One round of revisions, no scope creep.</p>
+              <ul class="card__list">
+                <li>1 page, fully responsive</li>
+                <li>Custom layout &amp; type system</li>
+                <li>Scroll micro-interactions</li>
+                <li>7-day delivery</li>
+              </ul>
+            </div>
+            <div class="card__stub">
+              <div class="card__stubtop">
+                <span class="card__tag">Base Trim</span>
+                <span class="card__barcode" aria-hidden="true"></span>
+              </div>
+              <div class="card__price">
+                <span class="card__currency">$</span><span class="card__amount">480</span><span class="card__period">/ site</span>
+              </div>
+              <button class="card__cta" type="button" data-cursor-hover>Select Base <span>→</span></button>
+              <span class="card__vin">VIN&nbsp;04A-BASE-2026</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- CENTER -->
+        <article class="card card--center" data-card="center">
+          <div class="card__inner">
+            <div class="card__paper">
+              <span class="card__code">Spec / 02</span>
+              <h3 class="card__name">Studio</h3>
+              <p class="card__note">The one most clients drive off the lot with. Full build, motion included.</p>
+              <ul class="card__list">
+                <li>Up to 5 pages</li>
+                <li>GSAP scroll storytelling</li>
+                <li>Custom shader / WebGL accent</li>
+                <li>2 rounds of revisions</li>
+                <li>14-day delivery</li>
+              </ul>
+            </div>
+            <div class="card__stub card__stub--featured">
+              <div class="card__stubtop">
+                <span class="card__tag">Most Spec'd</span>
+                <span class="card__barcode" aria-hidden="true"></span>
+              </div>
+              <div class="card__price">
+                <span class="card__currency">$</span><span class="card__amount">1240</span><span class="card__period">/ site</span>
+              </div>
+              <button class="card__cta" type="button" data-cursor-hover>Select Studio <span>→</span></button>
+              <span class="card__vin">VIN&nbsp;07S-STUDIO-2026</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- RIGHT -->
+        <article class="card card--right" data-card="right">
+          <div class="card__inner">
+            <div class="card__paper">
+              <span class="card__code">Spec / 03</span>
+              <h3 class="card__name">Flagship</h3>
+              <p class="card__note">Award-season build. Everything bespoke, nothing off the rack.</p>
+              <ul class="card__list">
+                <li>Unlimited pages</li>
+                <li>Full custom shader suite</li>
+                <li>Art direction &amp; copywriting</li>
+                <li>Unlimited revisions</li>
+                <li>Priority delivery</li>
+              </ul>
+            </div>
+            <div class="card__stub">
+              <div class="card__stubtop">
+                <span class="card__tag">Flagship Trim</span>
+                <span class="card__barcode" aria-hidden="true"></span>
+              </div>
+              <div class="card__price">
+                <span class="card__currency">$</span><span class="card__amount">2960</span><span class="card__period">/ site</span>
+              </div>
+              <button class="card__cta" type="button" data-cursor-hover>Select Flagship <span>→</span></button>
+              <span class="card__vin">VIN&nbsp;09F-FLAG-2026</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="pricing__foot">All specs include hosting handoff, source files and a 30-day support window.</p>
+    </div>
+  </section>
+
+  <!-- Testimonials — 3D cylindrical infinite rotation -->
+  <section class="tmony" data-tmony>
+    <div class="ambient" aria-hidden="true">
+      <span class="ambient__orb ambient__orb--a"></span>
+      <span class="ambient__orb ambient__orb--f"></span>
+      <span class="ambient__grid"></span>
+      <span class="ambient__dot" style="top:22%; left:16%; --d:15s;"></span>
+      <span class="ambient__dot" style="top:70%; left:78%; --d:19s;"></span>
+    </div>
+
+    <header class="tmony__head">
+      <span class="tmony__eyebrow">✦ (06) — Testimonials</span>
+      <h2 class="tmony__title">Words from<br /><em>the studio floor</em>.</h2>
+      <p class="tmony__sub">Five voices, one orbit. Hover to hold a card still — release to let it spin.</p>
+    </header>
+
+    <div class="tmony__stage" data-tmony-stage>
+      <div class="tmony__ring" data-tmony-ring>
+
+        <article class="tmony-card">
+          <div class="tmony-card__inner">
+            <span class="tmony-card__quote">“</span>
+            <p class="tmony-card__text">Pixantra rebuilt our brand from the ground up. The launch site pulled a 300% lift in demo requests inside the first month.</p>
+            <div class="tmony-card__foot">
+              <span class="tmony-card__avatar"><img src="https://i.pravatar.cc/84?img=32" alt="" loading="lazy" /></span>
+              <span class="tmony-card__meta">
+                <span class="tmony-card__name">Aria Reyes</span>
+                <span class="tmony-card__role">Founder, Northwind</span>
+                <span class="tmony-card__stars">★★★★★</span>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tmony-card">
+          <div class="tmony-card__inner">
+            <span class="tmony-card__quote">“</span>
+            <p class="tmony-card__text">The motion work is unreal. Every scroll feels intentional. Clients literally ask us who designed the site.</p>
+            <div class="tmony-card__foot">
+              <span class="tmony-card__avatar"><img src="https://i.pravatar.cc/84?img=12" alt="" loading="lazy" /></span>
+              <span class="tmony-card__meta">
+                <span class="tmony-card__name">Jonah Kessler</span>
+                <span class="tmony-card__role">CMO, Lumen Labs</span>
+                <span class="tmony-card__stars">★★★★★</span>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tmony-card">
+          <div class="tmony-card__inner">
+            <span class="tmony-card__quote">“</span>
+            <p class="tmony-card__text">Fast, personal, and ridiculously detail-obsessed. They shipped a full brand system in two weeks flat.</p>
+            <div class="tmony-card__foot">
+              <span class="tmony-card__avatar"><img src="https://i.pravatar.cc/84?img=47" alt="" loading="lazy" /></span>
+              <span class="tmony-card__meta">
+                <span class="tmony-card__name">Mina Chen</span>
+                <span class="tmony-card__role">Head of Design, Fable</span>
+                <span class="tmony-card__stars">★★★★★</span>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tmony-card">
+          <div class="tmony-card__inner">
+            <span class="tmony-card__quote">“</span>
+            <p class="tmony-card__text">We came for a landing page and left with a design partner. The strategy work alone paid for itself.</p>
+            <div class="tmony-card__foot">
+              <span class="tmony-card__avatar"><img src="https://i.pravatar.cc/84?img=51" alt="" loading="lazy" /></span>
+              <span class="tmony-card__meta">
+                <span class="tmony-card__name">Diego Ortega</span>
+                <span class="tmony-card__role">CEO, Halyard</span>
+                <span class="tmony-card__stars">★★★★★</span>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tmony-card">
+          <div class="tmony-card__inner">
+            <span class="tmony-card__quote">“</span>
+            <p class="tmony-card__text">Award-season quality without the agency overhead. Pixantra is the studio we recommend to everyone.</p>
+            <div class="tmony-card__foot">
+              <span class="tmony-card__avatar"><img src="https://i.pravatar.cc/84?img=45" alt="" loading="lazy" /></span>
+              <span class="tmony-card__meta">
+                <span class="tmony-card__name">Sofia Park</span>
+                <span class="tmony-card__role">Director, Orbit Co.</span>
+                <span class="tmony-card__stars">★★★★★</span>
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="tmony__tip" data-tmony-tip aria-hidden="true">Remove cursor to continue <strong>rotation</strong></div>
+  </section>
+
+  <!-- Projects — awwwards-style glass reveal + detail popup -->
+  <section class="projects" id="projects" data-projects>
+    <div class="ambient ambient--stack" aria-hidden="true">
+      <span class="ambient__orb ambient__orb--c"></span>
+      <span class="ambient__orb ambient__orb--e"></span>
+      <span class="ambient__grid"></span>
+    </div>
+
+    <header class="projects__head">
+      <div>
+        <span class="projects__eyebrow">✦ (07) — Selected Work</span>
+        <h2 class="projects__title">Projects that<br /><em>ship results</em>.</h2>
+      </div>
+      <p class="projects__intro">One flagship piece from each service line. Open any card for the full case study.</p>
+    </header>
+
+    <div class="projects__grid" data-projects-grid>
+      <!-- cards injected by projects.js from the shared data model -->
+    </div>
+
+    <div class="projects__cta-row">
+      <a href="#portfolio" class="projects__cta" data-projects-more data-route="portfolio" data-cursor-hover data-magnetic>
+        <span>View more projects</span>
+        <span class="projects__cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
+  </div><!-- /.route home -->
+
+  <!-- ============ PORTFOLIO ROUTE ============ -->
+  <div class="route pg" data-route-page="portfolio" hidden>
+    <section class="pg-hero">
+      <div class="ambient" aria-hidden="true">
+        <span class="ambient__orb ambient__orb--a"></span>
+        <span class="ambient__orb ambient__orb--b"></span>
+        <span class="ambient__grid"></span>
+      </div>
+      <div class="pg-hero__inner">
+        <span class="pg-eyebrow" data-reveal>✦ (02) — Portfolio</span>
+        <h1 class="pg-title" data-page-title>
+          <span class="pg-title__line"><span>Work that</span></span>
+          <span class="pg-title__line"><span>earns its <em>keep</em>.</span></span>
+        </h1>
+        <p class="pg-lead" data-reveal data-reveal-d="1">A cross-section of everything we make — brand systems, product sites, motion and full builds. Every project below shipped to production and moved a real number.</p>
+        <div class="pg-metrics" data-reveal data-reveal-d="2">
+          <div class="pg-metric"><span class="pg-metric__num">120+</span><span class="pg-metric__label">Projects shipped</span></div>
+          <div class="pg-metric"><span class="pg-metric__num">14</span><span class="pg-metric__label">Industries</span></div>
+          <div class="pg-metric"><span class="pg-metric__num">9</span><span class="pg-metric__label">Design awards</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Horizontal-scroll showcase (pinned on desktop, swipe on mobile) -->
+    <section class="pg-section hscroll" data-hscroll>
+      <div class="hscroll__hint"><span class="line"></span> Scroll to explore — drag on touch</div>
+      <div class="hscroll__pin" data-hscroll-pin>
+        <div class="hscroll__track" data-hscroll-track>
+          <article class="hpanel" style="--hc1:#009bff; --hc2:#0b2a8f;">
+            <div class="hpanel__bg"></div><div class="hpanel__scrim"></div>
+            <div class="hpanel__content"><span class="hpanel__idx">01 — Web Design</span>
+              <h3 class="hpanel__title">Northwind Platform</h3>
+              <p class="hpanel__desc">A scroll-driven marketing site that lifted demo requests by 300%.</p>
+              <div class="hpanel__tags"><span>Webflow</span><span>GSAP</span><span>WebGL</span></div></div>
+          </article>
+          <article class="hpanel" style="--hc1:#3aa0ff; --hc2:#132a86;">
+            <div class="hpanel__bg"></div><div class="hpanel__scrim"></div>
+            <div class="hpanel__content"><span class="hpanel__idx">02 — Brand Identity</span>
+              <h3 class="hpanel__title">Lumen Labs</h3>
+              <p class="hpanel__desc">Mark, motion and voice for a research lab going to market.</p>
+              <div class="hpanel__tags"><span>Logo</span><span>Guidelines</span><span>Motion</span></div></div>
+          </article>
+          <article class="hpanel" style="--hc1:#00b4ff; --hc2:#0a3aa0;">
+            <div class="hpanel__bg"></div><div class="hpanel__scrim"></div>
+            <div class="hpanel__content"><span class="hpanel__idx">03 — Motion Design</span>
+              <h3 class="hpanel__title">Fable Reels</h3>
+              <p class="hpanel__desc">A reusable library of interface reels and micro-interactions.</p>
+              <div class="hpanel__tags"><span>After Effects</span><span>Lottie</span><span>3D</span></div></div>
+          </article>
+          <article class="hpanel" style="--hc1:#2ad0ff; --hc2:#0a63d6;">
+            <div class="hpanel__bg"></div><div class="hpanel__scrim"></div>
+            <div class="hpanel__content"><span class="hpanel__idx">04 — UI/UX</span>
+              <h3 class="hpanel__title">Halyard Dashboard</h3>
+              <p class="hpanel__desc">A data-dense ops tool redesigned around how people actually work.</p>
+              <div class="hpanel__tags"><span>Research</span><span>Figma</span><span>Prototype</span></div></div>
+          </article>
+          <article class="hpanel" style="--hc1:#1a5eff; --hc2:#0b1b7a;">
+            <div class="hpanel__bg"></div><div class="hpanel__scrim"></div>
+            <div class="hpanel__content"><span class="hpanel__idx">05 — Development</span>
+              <h3 class="hpanel__title">Orbit Storefront</h3>
+              <p class="hpanel__desc">Headless commerce engineered for scale, speed and a perfect score.</p>
+              <div class="hpanel__tags"><span>React</span><span>Edge</span><span>Headless</span></div></div>
+          </article>
+          <article class="hpanel" style="--hc1:#4dbaff; --hc2:#1226b5;">
+            <div class="hpanel__bg"></div><div class="hpanel__scrim"></div>
+            <div class="hpanel__content"><span class="hpanel__idx">06 — Art Direction</span>
+              <h3 class="hpanel__title">Halcyon Campaign</h3>
+              <p class="hpanel__desc">End-to-end creative direction across web, social and print.</p>
+              <div class="hpanel__tags"><span>Concept</span><span>Styling</span><span>Rollout</span></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full grid (reuses proj-card + modal) -->
+    <section class="pg-section">
+      <div class="pg-shead">
+        <span class="pg-shead__eyebrow" data-reveal>Every case study</span>
+        <h2 class="pg-shead__title" data-reveal data-reveal-d="1">All work, <em>across all services</em>.</h2>
+        <p class="pg-shead__sub" data-reveal data-reveal-d="2">Tap any project to open the full case study — brief, approach, deliverables and the outcome.</p>
+      </div>
+      <div class="pg__wrap">
+        <div class="portfolio__grid" data-portfolio-grid><!-- cards injected by features.js --></div>
+      </div>
+    </section>
+
+    <section class="pg-cta">
+      <div class="ambient" aria-hidden="true"><span class="ambient__orb ambient__orb--a"></span></div>
+      <div class="pg-cta__inner">
+        <h2 class="pg-cta__title" data-reveal>Have something<br /><em>worth building</em>?</h2>
+        <a href="#contact" class="pg-cta__btn" data-route="contact" data-magnetic data-cursor-hover>Start a project <span>→</span></a>
+      </div>
+    </section>
+  </div><!-- /.route portfolio -->
+
+  <!-- ============ ABOUT ROUTE ============ -->
+  <div class="route pg" data-route-page="about" hidden>
+    <section class="pg-hero">
+      <div class="ambient" aria-hidden="true">
+        <span class="ambient__orb ambient__orb--c"></span>
+        <span class="ambient__orb ambient__orb--d"></span>
+        <span class="ambient__grid"></span>
+      </div>
+      <div class="pg-hero__inner">
+        <span class="pg-eyebrow" data-reveal>✦ (03) — About</span>
+        <h1 class="pg-title" data-page-title>
+          <span class="pg-title__line"><span>A studio built</span></span>
+          <span class="pg-title__line"><span>on <em>craft</em> &amp; care.</span></span>
+        </h1>
+        <p class="pg-lead" data-reveal data-reveal-d="1">Pixantra is a small, senior team of designers, animators and engineers. We move fast, stay personal, and obsess over the details most studios skip.</p>
+        <div class="pg-metrics" data-reveal data-reveal-d="2">
+          <div class="pg-metric"><span class="pg-metric__num">2019</span><span class="pg-metric__label">Founded</span></div>
+          <div class="pg-metric"><span class="pg-metric__num">12</span><span class="pg-metric__label">Team members</span></div>
+          <div class="pg-metric"><span class="pg-metric__num">4</span><span class="pg-metric__label">Continents served</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pg-section">
+      <div class="split2">
+        <p class="split2__big" data-reveal>We believe great design is <em>invisible engineering</em> — every pixel earning its place, every interaction paying its way.</p>
+        <div class="split2__body" data-reveal data-reveal-d="1">
+          <p>We started Pixantra to close the gap between agencies that design and shops that build. So we do both — under one roof, with one team accountable end to end.</p>
+          <p>That means <strong>no handoffs lost in translation</strong>, no motion that dies in a spec doc, and no design that can't ship. Strategy, art direction, motion and code all live in the same room.</p>
+          <p>The result is work that feels considered at every scale — from the first fold to the last edge case.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zoom section (scroll-driven scale reveal, pinned) -->
+    <section class="pg-section zoom" data-zoom style="padding:0; border-bottom:none;">
+      <div class="zoom__pin" data-zoom-pin>
+        <div class="zoom__scaler" data-zoom-scaler>
+          <div class="zoom__grad"></div>
+        </div>
+        <div class="zoom__center" data-zoom-center>
+          <div class="zoom__word">CRAFT</div>
+          <div class="zoom__cap">Zoom in on the details</div>
+        </div>
+        <div class="zoom__reveal" data-zoom-reveal>
+          <div class="zoom__reveal-inner">
+            <h3>Every project gets the same obsessive attention — whether it's a global rebrand or a single hover state.</h3>
+            <p>We prototype in real browsers, test on real devices, and don't call it done until it feels effortless.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sticky detail: pinned heading (left) + scrolling steps (right) -->
+    <section class="pg-section stick">
+      <div class="stick__wrap">
+        <aside class="stick__aside">
+          <span class="stick__eyebrow" data-reveal>How we work</span>
+          <h2 class="stick__title" data-reveal data-reveal-d="1">Four moves, <em>zero drama</em>.</h2>
+          <p class="stick__sub" data-reveal data-reveal-d="2">A clear path from first call to launch day — no handoffs lost in translation, no surprises. Here's how every project moves.</p>
+        </aside>
+
+        <ol class="stick__list">
+          <li class="stick__item" data-reveal>
+            <span class="stick__num">01</span>
+            <h3 class="stick__item-title">Discover</h3>
+            <p class="stick__item-desc">We dig into your goals, audience and constraints before touching a canvas.</p>
+          </li>
+          <li class="stick__item" data-reveal>
+            <span class="stick__num">02</span>
+            <h3 class="stick__item-title">Design</h3>
+            <p class="stick__item-desc">Directions, systems and prototypes — reviewed together, iterated fast.</p>
+          </li>
+          <li class="stick__item" data-reveal>
+            <span class="stick__num">03</span>
+            <h3 class="stick__item-title">Build</h3>
+            <p class="stick__item-desc">We engineer the real thing — accessible, fast, and easy to maintain.</p>
+          </li>
+          <li class="stick__item" data-reveal>
+            <span class="stick__num">04</span>
+            <h3 class="stick__item-title">Launch</h3>
+            <p class="stick__item-desc">Handoff, support and a 30-day window so the win actually sticks.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Values grid -->
+    <section class="pg-section">
+      <div class="pg-shead">
+        <span class="pg-shead__eyebrow" data-reveal>What we value</span>
+        <h2 class="pg-shead__title" data-reveal data-reveal-d="1">Principles we <em>refuse to cut</em>.</h2>
+      </div>
+      <div class="vgrid">
+        <article class="vcard" data-reveal><span class="vcard__num">01</span><h3 class="vcard__title">Craft over speed</h3><p class="vcard__desc">Fast matters — but not at the cost of the details that make work feel premium.</p></article>
+        <article class="vcard" data-reveal data-reveal-d="1"><span class="vcard__num">02</span><h3 class="vcard__title">One accountable team</h3><p class="vcard__desc">Design and build under one roof, so nothing gets lost between disciplines.</p></article>
+        <article class="vcard" data-reveal data-reveal-d="2"><span class="vcard__num">03</span><h3 class="vcard__title">Motion with meaning</h3><p class="vcard__desc">Every animation guides attention or communicates state. Never decoration for its own sake.</p></article>
+        <article class="vcard" data-reveal><span class="vcard__num">04</span><h3 class="vcard__title">Built to last</h3><p class="vcard__desc">Accessible, performant, documented — work your team can run without us.</p></article>
+        <article class="vcard" data-reveal data-reveal-d="1"><span class="vcard__num">05</span><h3 class="vcard__title">Honest partners</h3><p class="vcard__desc">Clear timelines, clear pricing, and straight answers even when they're inconvenient.</p></article>
+        <article class="vcard" data-reveal data-reveal-d="2"><span class="vcard__num">06</span><h3 class="vcard__title">Results, not vibes</h3><p class="vcard__desc">Beautiful is the baseline. We're here to move the number that matters to you.</p></article>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="pg-section">
+      <div class="pg-shead">
+        <span class="pg-shead__eyebrow" data-reveal>The story so far</span>
+        <h2 class="pg-shead__title" data-reveal data-reveal-d="1">A short <em>history</em>.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-row" data-reveal><span class="tl-year">2019</span><div class="tl-body"><h4>Two founders, one room</h4><p>Pixantra opens with a simple bet: design and engineering are stronger together than apart.</p></div></div>
+        <div class="tl-row" data-reveal><span class="tl-year">2021</span><div class="tl-body"><h4>First award season</h4><p>Three site-of-the-day nods and a growing roster of product clients across fintech and SaaS.</p></div></div>
+        <div class="tl-row" data-reveal><span class="tl-year">2023</span><div class="tl-body"><h4>Motion &amp; WebGL studio</h4><p>We double down on shader-driven experiences and a dedicated motion practice.</p></div></div>
+        <div class="tl-row" data-reveal><span class="tl-year">2026</span><div class="tl-body"><h4>Twelve strong, worldwide</h4><p>A senior team serving clients across four continents — still small on purpose.</p></div></div>
+      </div>
+    </section>
+
+    <section class="pg-cta">
+      <div class="ambient" aria-hidden="true"><span class="ambient__orb ambient__orb--c"></span></div>
+      <div class="pg-cta__inner">
+        <h2 class="pg-cta__title" data-reveal>Let's make<br />something <em>great</em>.</h2>
+        <a href="#contact" class="pg-cta__btn" data-route="contact" data-magnetic data-cursor-hover>Get in touch <span>→</span></a>
+      </div>
+    </section>
+  </div><!-- /.route about -->
+
+  <!-- ============ CONTACT ROUTE ============ -->
+  <div class="route pg" data-route-page="contact" hidden>
+    <section class="pg-hero">
+      <div class="ambient" aria-hidden="true">
+        <span class="ambient__orb ambient__orb--a"></span>
+        <span class="ambient__orb ambient__orb--f"></span>
+        <span class="ambient__grid"></span>
+      </div>
+      <div class="pg-hero__inner">
+        <span class="pg-eyebrow" data-reveal>✦ (04) — Contact</span>
+        <h1 class="pg-title" data-page-title>
+          <span class="pg-title__line"><span>Let's <em>talk</em>.</span></span>
+        </h1>
+        <p class="pg-lead" data-reveal data-reveal-d="1">Tell us what you're building. We reply to every serious enquiry within one business day — usually much sooner.</p>
+      </div>
+    </section>
+
+    <section class="pg-section">
+      <div class="contact-grid">
+        <form class="cform" data-contact-form data-reveal novalidate>
+          <div class="cform__field">
+            <label for="c-name">Name</label>
+            <input id="c-name" name="name" type="text" placeholder="Your name" required />
+          </div>
+          <div class="cform__field">
+            <label for="c-email">Email</label>
+            <input id="c-email" name="email" type="email" placeholder="you@company.com" required />
+          </div>
+          <div class="cform__field">
+            <label for="c-budget">Budget</label>
+            <select id="c-budget" name="budget">
+              <option>Under $2k</option><option>$2k – $5k</option><option>$5k – $15k</option><option>$15k+</option>
+            </select>
+          </div>
+          <div class="cform__field">
+            <label for="c-service">Service</label>
+            <select id="c-service" name="service">
+              <option>Web Design</option><option>Brand Identity</option><option>Motion Design</option><option>UI/UX Design</option><option>Development</option><option>Art Direction</option>
+            </select>
+          </div>
+          <div class="cform__field cform__field--full">
+            <label for="c-msg">Project details</label>
+            <textarea id="c-msg" name="message" placeholder="A few lines about your project, timeline and goals…" required></textarea>
+          </div>
+          <button class="cform__submit" type="submit" data-cursor-hover>Send enquiry <span>→</span></button>
+          <p class="cform__note" data-contact-note>No spam, ever. Your details stay between us.</p>
+        </form>
+
+        <aside class="cdetails" data-reveal data-reveal-d="1">
+          <div><div class="cdetail__k">Email</div><div class="cdetail__v"><a href="mailto:hello@pixantra.studio">hello@pixantra.studio</a></div><div class="cdetail__sub">For new projects &amp; press</div></div>
+          <div><div class="cdetail__k">Phone</div><div class="cdetail__v"><a href="tel:+10000000000">+1 (000) 000-0000</a></div><div class="cdetail__sub">Mon–Fri, 9–6 PT</div></div>
+          <div><div class="cdetail__k">Studio</div><div class="cdetail__v">Remote-first</div><div class="cdetail__sub">Working across 4 continents</div></div>
+          <div><div class="cdetail__k">Elsewhere</div><div class="cchips"><a href="#">Instagram</a><a href="#">Dribbble</a><a href="#">LinkedIn</a><a href="#">X</a></div></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="pg-section">
+      <div class="pg-shead">
+        <span class="pg-shead__eyebrow" data-reveal>Before you ask</span>
+        <h2 class="pg-shead__title" data-reveal data-reveal-d="1">Frequently <em>asked</em>.</h2>
+      </div>
+      <div class="faq" data-faq>
+        <div class="faq__item"><button class="faq__q" type="button">How soon can you start?<span class="faq__ico"></span></button><div class="faq__a"><div class="faq__a-inner">Most projects kick off within a week of sign-off. Smaller jobs can start within 24 hours once the brief is clear.</div></div></div>
+        <div class="faq__item"><button class="faq__q" type="button">Do you work fixed-price or hourly?<span class="faq__ico"></span></button><div class="faq__a"><div class="faq__a-inner">Fixed-price by default — you know the number up front. For open-ended work we offer a monthly retainer.</div></div></div>
+        <div class="faq__item"><button class="faq__q" type="button">Can you handle both design and development?<span class="faq__ico"></span></button><div class="faq__a"><div class="faq__a-inner">Yes. Strategy, design, motion and engineering all live in-house, so there are no handoffs lost in translation.</div></div></div>
+        <div class="faq__item"><button class="faq__q" type="button">What happens after launch?<span class="faq__ico"></span></button><div class="faq__a"><div class="faq__a-inner">Every build ships with source files, a hosting handoff and a 30-day support window. Retainers are available beyond that.</div></div></div>
+      </div>
+    </section>
+
+    <section class="pg-cta">
+      <div class="ambient" aria-hidden="true"><span class="ambient__orb ambient__orb--f"></span></div>
+      <div class="pg-cta__inner">
+        <h2 class="pg-cta__title" data-reveal>Prefer a call?<br /><em>Book a slot.</em></h2>
+        <a href="#" class="pg-cta__btn" data-magnetic data-cursor-hover>Schedule a call <span>→</span></a>
+      </div>
+    </section>
+  </div><!-- /.route contact -->
+
+  </div><!-- /.routes -->
+
+  <!-- Project detail popup / modal -->
+  <div class="proj-modal" data-proj-modal aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="proj-modal__backdrop" data-proj-modal-backdrop></div>
+    <div class="proj-modal__dialog" data-proj-modal-dialog>
+      <button class="proj-modal__close" type="button" data-proj-modal-close aria-label="Close">✕</button>
+      <div class="proj-modal__media">
+        <span class="proj-modal__badge" data-proj-modal-badge>Service</span>
+        <img class="proj-modal__img" data-proj-modal-img alt="" />
+      </div>
+      <div class="proj-modal__panel">
+        <span class="proj-modal__code" data-proj-modal-code>Case / 00</span>
+        <h3 class="proj-modal__title" data-proj-modal-title>Project</h3>
+        <p class="proj-modal__lead" data-proj-modal-lead></p>
+        <p class="proj-modal__desc" data-proj-modal-desc></p>
+        <div class="proj-modal__grid">
+          <div><span class="proj-modal__meta-k">Client</span><div class="proj-modal__meta-v" data-proj-modal-client></div></div>
+          <div><span class="proj-modal__meta-k">Year</span><div class="proj-modal__meta-v" data-proj-modal-year></div></div>
+          <div><span class="proj-modal__meta-k">Service</span><div class="proj-modal__meta-v" data-proj-modal-service></div></div>
+          <div><span class="proj-modal__meta-k">Timeline</span><div class="proj-modal__meta-v" data-proj-modal-timeline></div></div>
+        </div>
+        <div class="proj-modal__tags" data-proj-modal-tags></div>
+        <div class="proj-modal__actions">
+          <a href="#" class="proj-modal__link" data-proj-modal-link data-cursor-hover>View live <span>↗</span></a>
+          <a href="#portfolio" class="proj-modal__link proj-modal__link--ghost" data-route="portfolio" data-cursor-hover>All work</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mega footer — giant sliced company name -->
+  <footer class="mega-footer" data-mega-footer>
+    <div class="mega-footer__top">
+      <p class="mega-footer__pitch">A design-driven studio building <em>brands</em>, sites &amp; motion that move the numbers.</p>
+      <div class="mega-footer__col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#about" data-route="about">About</a></li>
+          <li><a href="#portfolio" data-route="portfolio">Portfolio</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact" data-route="contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="mega-footer__col">
+        <h4>Say hello</h4>
+        <ul>
+          <li><a href="mailto:hello@pixantra.studio">hello@pixantra.studio</a></li>
+          <li><a href="tel:+10000000000">+1 (000) 000-0000</a></li>
+          <li><a href="#">Book a call</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mega-footer__wordmark" data-mega-wordmark aria-hidden="true">
+      <span class="mega-word" data-mega-word>PIXANTRA</span>
+    </div>
+
+    <div class="mega-footer__bar">
+      <span>© 2026 Pixantra Studio — All rights reserved.</span>
+      <div class="mega-footer__socials">
+        <a href="#">Instagram</a>
+        <a href="#">Dribbble</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">X</a>
+      </div>
+      <a href="#" class="mega-footer__totop" data-mega-totop data-cursor-hover>
+        Back to top
+        <span class="mega-footer__totop-ico">↑</span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Page-transition overlay (single sweep) -->
+  <div class="transition" data-transition aria-hidden="true">
+    <span class="transition__panel"></span>
+    <span class="transition__label" data-transition-label></span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="js/liquid.js"></script>
+  <script src="js/preloader.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/pricing.js"></script>
+  <script src="js/features.js"></script>
+  <script src="js/pages.js"></script>
+</body>
+</html>
